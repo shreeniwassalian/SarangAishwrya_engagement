@@ -2,6 +2,7 @@
 
 import React, { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import confetti from "canvas-confetti";
 
 interface ScratchCardProps {
   children: React.ReactNode;
@@ -12,6 +13,35 @@ export default function ScratchCard({ children }: ScratchCardProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isRevealed, setIsRevealed] = useState(false);
   const [isDrawing, setIsDrawing] = useState(false);
+
+  useEffect(() => {
+    if (isRevealed) {
+      const duration = 3000;
+      const end = Date.now() + duration;
+
+      const frame = () => {
+        confetti({
+          particleCount: 5,
+          angle: 60,
+          spread: 55,
+          origin: { x: 0, y: 0.7 },
+          colors: ['#D4AF37', '#FFF0D4', '#7A1F2B', '#A8B08C']
+        });
+        confetti({
+          particleCount: 5,
+          angle: 120,
+          spread: 55,
+          origin: { x: 1, y: 0.7 },
+          colors: ['#D4AF37', '#FFF0D4', '#7A1F2B', '#A8B08C']
+        });
+
+        if (Date.now() < end) {
+          requestAnimationFrame(frame);
+        }
+      };
+      frame();
+    }
+  }, [isRevealed]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
