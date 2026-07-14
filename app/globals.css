@@ -218,7 +218,7 @@ body {
 
 .eyebrow {
   margin: 0 0 18px;
-  color: #8C593B;
+  color: #FFF0D4;
   font-family: var(--font-cormorant), Georgia, serif;
   font-size: clamp(1.15rem, 2.8vw, 1.45rem);
   font-weight: 800;
@@ -252,13 +252,13 @@ body {
   justify-content: center;
   gap: 13px;
   margin: clamp(30px, 5vh, 44px) auto;
-  color: #8C593B;
+  color: #FFF0D4;
 }
 
 .invitation-divider span {
   width: clamp(64px, 17vw, 130px);
   height: 1px;
-  background: linear-gradient(90deg, transparent, #8C593B, transparent);
+  background: linear-gradient(90deg, transparent, #FFF0D4, transparent);
 }
 
 .invitation-divider i {
@@ -294,12 +294,12 @@ body {
   line-height: 1.48;
 }
 
-.couple-intro p { color: #8C593B; font-style: italic; font-weight: 800; letter-spacing: 0.1em; }
+.couple-intro p { color: #FFF0D4; font-style: italic; font-weight: 800; letter-spacing: 0.1em; }
 .couple-intro strong { color: #fff4e2; font-weight: 600; letter-spacing: 0.05em; }
 
 .with-script {
   margin: -2px 0 !important;
-  color: #8C593B !important;
+  color: #FFF0D4 !important;
   font-family: var(--font-great-vibes), cursive !important;
   font-size: clamp(3rem, 9.5vw, 4.4rem) !important;
   font-weight: 700 !important;
@@ -315,7 +315,7 @@ body {
 
 .time-title {
   margin: 18px 0 0;
-  color: #8C593B;
+  color: #FFF0D4;
   font-family: var(--font-cormorant), Georgia, serif;
   font-size: clamp(2.1rem, 5.5vw, 3.2rem);
   font-weight: 900;
@@ -325,7 +325,7 @@ body {
 .venue-location,
 .love-date {
   margin: 18px 0 0;
-  color: #8C593B;
+  color: #FFF0D4;
   font-family: var(--font-cormorant), Georgia, serif;
   font-size: clamp(1.6rem, 4vw, 2.2rem);
   font-weight: 800;
@@ -352,14 +352,14 @@ body {
 .countdown-unit {
   min-width: 0;
   padding: clamp(16px, 3vw, 24px) 6px;
-  border-top: 1px solid rgba(140, 89, 59, 0.68);
-  border-bottom: 1px solid rgba(140, 89, 59, 0.3);
+  border-top: 1px solid rgba(255, 240, 212, 0.68);
+  border-bottom: 1px solid rgba(255, 240, 212, 0.3);
   background: rgba(36, 17, 9, 0.23);
 }
 
 .countdown-unit span {
   display: block;
-  color: #8C593B;
+  color: #FFF0D4;
   font-family: var(--font-playfair), Georgia, serif;
   font-size: clamp(2rem, 6.8vw, 4rem);
   font-weight: 800;
@@ -369,7 +369,7 @@ body {
 .countdown-unit small {
   display: block;
   margin-top: 10px;
-  color: #8C593B;
+  color: #FFF0D4;
   font-family: var(--font-cormorant), Georgia, serif;
   font-size: clamp(0.88rem, 2.3vw, 1.18rem);
   font-weight: 800;
@@ -386,7 +386,7 @@ body {
   width: min(100%, 360px);
   margin: 32px auto 0;
   text-decoration: none;
-  border: 1px solid rgba(140, 89, 59, 0.4);
+  border: 1px solid rgba(255, 240, 212, 0.4);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
   transition: transform 260ms ease, border-color 260ms ease, box-shadow 260ms ease;
   overflow: hidden;
@@ -395,8 +395,8 @@ body {
 
 .map-widget-container:hover {
   transform: translateY(-5px);
-  border-color: #8C593B;
-  box-shadow: 0 16px 40px rgba(140, 89, 59, 0.2);
+  border-color: #FFF0D4;
+  box-shadow: 0 16px 40px rgba(255, 240, 212, 0.2);
 }
 
 .map-widget-frame {
@@ -437,9 +437,9 @@ body {
 .map-widget-btn {
   display: inline-block;
   padding: 8px 18px;
-  background: rgba(140, 89, 59, 0.15);
-  border: 1px solid #8C593B;
-  color: #8C593B;
+  background: rgba(255, 240, 212, 0.15);
+  border: 1px solid #FFF0D4;
+  color: #FFF0D4;
   font-family: var(--font-cormorant), Georgia, serif;
   font-size: 0.82rem;
   font-weight: 800;
@@ -451,12 +451,12 @@ body {
 }
 
 .map-widget-container:hover .map-widget-btn {
-  background: #8C593B;
+  background: #FFF0D4;
   color: #17100d;
 }
 
 .love-names { color: #FFF8F0; font-size: clamp(2.8rem, 9vw, 5.3rem); }
-.love-names span { color: #8C593B; font-family: var(--font-great-vibes), cursive; font-weight: 700; }
+.love-names span { color: #FFF0D4; font-family: var(--font-great-vibes), cursive; font-weight: 700; }
 
 @media (max-width: 460px) {
   .invitation-content { width: min(100% - 28px, 700px); }
