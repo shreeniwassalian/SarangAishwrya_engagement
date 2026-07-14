@@ -450,7 +450,7 @@ export default function InvitationCard({ onOpen }: InvitationCardProps) {
         <p
           style={{
             fontFamily: "var(--font-cormorant)",
-            fontSize: "clamp(0.85rem,2.5vmin,1.05rem)",
+            fontSize: "clamp(1.1rem,3.2vmin,1.35rem)",
             letterSpacing: "0.34em",
             color: GOLD,
             textTransform: "uppercase",
@@ -468,7 +468,7 @@ export default function InvitationCard({ onOpen }: InvitationCardProps) {
         <h1
           style={{
             fontFamily: "var(--font-playfair)",
-            fontSize: "clamp(2.6rem,11vmin,4.4rem)",
+            fontSize: "clamp(3.1rem,13vmin,5.2rem)",
             fontWeight: 900,
             color: CRIMSON,
             textAlign: "center",
@@ -487,7 +487,7 @@ export default function InvitationCard({ onOpen }: InvitationCardProps) {
         <p
           style={{
             fontFamily: "var(--font-cormorant)",
-            fontSize: "clamp(0.85rem,2.5vmin,1.05rem)",
+            fontSize: "clamp(1.1rem,3.2vmin,1.35rem)",
             letterSpacing: "0.32em",
             color: GOLD,
             textTransform: "uppercase",
@@ -505,7 +505,7 @@ export default function InvitationCard({ onOpen }: InvitationCardProps) {
         <h2
           style={{
             fontFamily: "var(--font-great-vibes), cursive",
-            fontSize: "clamp(2.15rem,8vmin,4rem)",
+            fontSize: "clamp(2.6rem,9.5vmin,4.8rem)",
             color: CRIMSON,
             fontWeight: 400,
             margin: "clamp(4px,0.8vh,10px) 0 clamp(12px,2.2vh,24px) 0",
@@ -541,8 +541,8 @@ export default function InvitationCard({ onOpen }: InvitationCardProps) {
         }}
       >
         <div className="flex h-full flex-col items-center justify-center" style={{ padding: "clamp(16px,4vmin,28px)", textAlign: "center" }}>
-          <p style={{ margin: 0, color: "#d7b55f", fontFamily: "var(--font-cormorant)", letterSpacing: "0.22em", fontSize: "clamp(0.62rem,1.8vmin,0.82rem)", textTransform: "uppercase", fontWeight: 600, textAlign: "center" }}>Engagement celebration</p>
-          <p style={{ margin: "clamp(10px,2vmin,16px) 0", color: CRIMSON, fontFamily: "var(--font-great-vibes), cursive", fontSize: "clamp(2rem,7vmin,3.4rem)", lineHeight: 0.9, textAlign: "center" }}>Sarang &amp; Aishwarya</p>
+          <p style={{ margin: 0, color: "#FFF8F0", fontFamily: "var(--font-cormorant)", letterSpacing: "0.22em", fontSize: "clamp(0.8rem,2.3vmin,1.1rem)", textTransform: "uppercase", fontWeight: 600, textAlign: "center" }}>Engagement celebration</p>
+          <p style={{ margin: "clamp(10px,2vmin,16px) 0", color: CRIMSON, fontFamily: "var(--font-great-vibes), cursive", fontSize: "clamp(2.3rem,8vmin,3.9rem)", lineHeight: 0.9, textAlign: "center" }}>Sarang &amp; Aishwarya</p>
           <span style={{ width: "38%", height: "1px", background: GOLD, opacity: 0.7 }} />
         </div>
       </motion.div>
@@ -607,7 +607,7 @@ export default function InvitationCard({ onOpen }: InvitationCardProps) {
         <p
           style={{
             fontFamily: "var(--font-cormorant)",
-            fontSize: "clamp(1.2rem, 4.2vmin, 2.05rem)",
+            fontSize: "clamp(1.45rem,5vmin,2.45rem)",
             color: DARK,
             margin: "clamp(4px,0.8vh,10px) 0",
             fontWeight: 500,
@@ -624,7 +624,7 @@ export default function InvitationCard({ onOpen }: InvitationCardProps) {
         <p
           style={{
             fontFamily: "var(--font-cormorant)",
-            fontSize: "clamp(1.2rem, 4.2vmin, 2.05rem)",
+            fontSize: "clamp(1.45rem,5vmin,2.45rem)",
             color: DARK,
             margin: "clamp(4px,0.8vh,10px) 0",
             fontWeight: 500,
@@ -666,7 +666,7 @@ export default function InvitationCard({ onOpen }: InvitationCardProps) {
             className="tap-to-open-text"
             style={{
               fontFamily: "var(--font-cormorant)",
-              fontSize: "clamp(1.05rem,2.8vmin,1.35rem)",
+              fontSize: "clamp(1.35rem,3.8vmin,1.75rem)",
               color: GOLD,
               letterSpacing: "0.38em",
               textTransform: "uppercase",
