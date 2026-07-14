@@ -218,11 +218,11 @@ body {
 
 .eyebrow {
   margin: 0 0 18px;
-  color: #D4AF37;
+  color: #8C593B;
   font-family: var(--font-cormorant), Georgia, serif;
-  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
-  font-weight: 700;
-  letter-spacing: 0.32em;
+  font-size: clamp(1.15rem, 2.8vw, 1.45rem);
+  font-weight: 800;
+  letter-spacing: 0.45em;
   line-height: 1.45;
   text-transform: uppercase;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
@@ -241,7 +241,8 @@ body {
 .invitation-title {
   color: #fff5e2;
   font-size: clamp(2.4rem, 8.5vw, 4.8rem);
-  letter-spacing: -0.035em;
+  font-weight: 700;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
@@ -251,13 +252,13 @@ body {
   justify-content: center;
   gap: 13px;
   margin: clamp(30px, 5vh, 44px) auto;
-  color: #D4AF37;
+  color: #8C593B;
 }
 
 .invitation-divider span {
   width: clamp(64px, 17vw, 130px);
   height: 1px;
-  background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+  background: linear-gradient(90deg, transparent, #8C593B, transparent);
 }
 
 .invitation-divider i {
@@ -293,12 +294,12 @@ body {
   line-height: 1.48;
 }
 
-.couple-intro p { color: #D4AF37; font-style: italic; font-weight: 700; }
-.couple-intro strong { color: #fff4e2; font-weight: 500; }
+.couple-intro p { color: #8C593B; font-style: italic; font-weight: 800; letter-spacing: 0.1em; }
+.couple-intro strong { color: #fff4e2; font-weight: 600; letter-spacing: 0.05em; }
 
 .with-script {
   margin: -2px 0 !important;
-  color: #D4AF37 !important;
+  color: #8C593B !important;
   font-family: var(--font-great-vibes), cursive !important;
   font-size: clamp(3rem, 9.5vw, 4.4rem) !important;
   font-weight: 700 !important;
@@ -307,26 +308,28 @@ body {
 
 .date-title {
   color: #fff5df;
-  font-size: clamp(3rem, 10.5vw, 5.8rem);
+  font-size: clamp(3.2rem, 11vw, 6.2rem);
+  font-weight: 800;
+  letter-spacing: 0.05em;
 }
 
 .time-title {
   margin: 18px 0 0;
-  color: #D4AF37;
+  color: #8C593B;
   font-family: var(--font-cormorant), Georgia, serif;
-  font-size: clamp(1.8rem, 4.5vw, 2.6rem);
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  font-size: clamp(2.1rem, 5.5vw, 3.2rem);
+  font-weight: 900;
+  letter-spacing: 0.18em;
 }
 
 .venue-location,
 .love-date {
   margin: 18px 0 0;
-  color: #D4AF37;
+  color: #8C593B;
   font-family: var(--font-cormorant), Georgia, serif;
-  font-size: clamp(1.4rem, 3.5vw, 1.85rem);
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: 0.18em;
 }
 
 .message-section p {
@@ -349,33 +352,33 @@ body {
 .countdown-unit {
   min-width: 0;
   padding: clamp(16px, 3vw, 24px) 6px;
-  border-top: 1px solid rgba(212, 175, 55, 0.68);
-  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+  border-top: 1px solid rgba(140, 89, 59, 0.68);
+  border-bottom: 1px solid rgba(140, 89, 59, 0.3);
   background: rgba(36, 17, 9, 0.23);
 }
 
 .countdown-unit span {
   display: block;
-  color: #D4AF37;
+  color: #8C593B;
   font-family: var(--font-playfair), Georgia, serif;
   font-size: clamp(2rem, 6.8vw, 4rem);
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1;
 }
 
 .countdown-unit small {
   display: block;
   margin-top: 10px;
-  color: #D4AF37;
+  color: #8C593B;
   font-family: var(--font-cormorant), Georgia, serif;
   font-size: clamp(0.88rem, 2.3vw, 1.18rem);
-  font-weight: 700;
-  letter-spacing: 0.18em;
+  font-weight: 800;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
 }
 
-.venue-name { color: #fff4df; font-size: clamp(2.8rem, 9vw, 5.1rem); }
+.venue-name { color: #fff4df; font-size: clamp(3rem, 9.5vw, 5.4rem); font-weight: 800; letter-spacing: 0.08em; }
 .venue-location { margin-top: 11px; }
 
 .map-widget-container {
@@ -383,7 +386,7 @@ body {
   width: min(100%, 360px);
   margin: 32px auto 0;
   text-decoration: none;
-  border: 1px solid rgba(212, 175, 55, 0.4);
+  border: 1px solid rgba(140, 89, 59, 0.4);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
   transition: transform 260ms ease, border-color 260ms ease, box-shadow 260ms ease;
   overflow: hidden;
@@ -392,8 +395,8 @@ body {
 
 .map-widget-container:hover {
   transform: translateY(-5px);
-  border-color: #D4AF37;
-  box-shadow: 0 16px 40px rgba(212, 175, 55, 0.2);
+  border-color: #8C593B;
+  box-shadow: 0 16px 40px rgba(140, 89, 59, 0.2);
 }
 
 .map-widget-frame {
@@ -434,13 +437,13 @@ body {
 .map-widget-btn {
   display: inline-block;
   padding: 8px 18px;
-  background: rgba(212, 175, 55, 0.15);
-  border: 1px solid #D4AF37;
-  color: #D4AF37;
+  background: rgba(140, 89, 59, 0.15);
+  border: 1px solid #8C593B;
+  color: #8C593B;
   font-family: var(--font-cormorant), Georgia, serif;
   font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
+  font-weight: 800;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   border-radius: 4px;
   backdrop-filter: blur(4px);
@@ -448,12 +451,12 @@ body {
 }
 
 .map-widget-container:hover .map-widget-btn {
-  background: #D4AF37;
+  background: #8C593B;
   color: #17100d;
 }
 
 .love-names { color: #FFF8F0; font-size: clamp(2.8rem, 9vw, 5.3rem); }
-.love-names span { color: #D4AF37; font-family: var(--font-great-vibes), cursive; font-weight: 700; }
+.love-names span { color: #8C593B; font-family: var(--font-great-vibes), cursive; font-weight: 700; }
 
 @media (max-width: 460px) {
   .invitation-content { width: min(100% - 28px, 700px); }
