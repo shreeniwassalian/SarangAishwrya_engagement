@@ -145,7 +145,7 @@ export default function ScratchCard({ children }: ScratchCardProps) {
       className="scratch-card-container relative w-full overflow-hidden rounded-2xl"
       style={{
         background: "#A8B08C", // Green background when revealed
-        padding: "30px 10px",
+        padding: "10px",
         touchAction: "none", // Prevent scrolling while scratching
       }}
     >
