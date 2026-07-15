@@ -6,9 +6,10 @@ import confetti from "canvas-confetti";
 
 interface ScratchCardProps {
   children: React.ReactNode;
+  onReveal?: () => void;
 }
 
-export default function ScratchCard({ children }: ScratchCardProps) {
+export default function ScratchCard({ children, onReveal }: ScratchCardProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isRevealed, setIsRevealed] = useState(false);
@@ -65,16 +66,46 @@ export default function ScratchCard({ children }: ScratchCardProps) {
     const fillCanvas = () => {
       ctx.globalCompositeOperation = "source-over";
       
-      // Crimson Red background
-      ctx.fillStyle = "#7A1F2B";
+      // Champagne Gold Metallic Foil Diagonal Gradient
+      const grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+      grad.addColorStop(0, "#F7E7C4");
+      grad.addColorStop(0.25, "#E2C478");
+      grad.addColorStop(0.5, "#C9A24B");
+      grad.addColorStop(0.75, "#E6D095");
+      grad.addColorStop(1, "#FAF0D7");
+      ctx.fillStyle = grad;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      // Ivory text
-      ctx.fillStyle = "#FFF0D4";
-      ctx.font = "bold clamp(1.2rem, 4vw, 1.8rem) 'Cormorant', Georgia, serif";
+      // Subtle diagonal metallic glare overlay
+      const glare = ctx.createLinearGradient(0, canvas.height, canvas.width, 0);
+      glare.addColorStop(0, "rgba(255, 255, 255, 0)");
+      glare.addColorStop(0.4, "rgba(255, 255, 255, 0.15)");
+      glare.addColorStop(0.5, "rgba(255, 255, 255, 0.35)");
+      glare.addColorStop(0.6, "rgba(255, 255, 255, 0.15)");
+      glare.addColorStop(1, "rgba(255, 255, 255, 0)");
+      ctx.fillStyle = glare;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Gold Foil Border Trim
+      ctx.strokeStyle = "rgba(122, 31, 43, 0.25)";
+      ctx.lineWidth = 1;
+      ctx.strokeRect(5, 5, canvas.width - 10, canvas.height - 10);
+
+      // Text Shadow for readability
+      ctx.shadowColor = "rgba(40, 15, 10, 0.4)";
+      ctx.shadowBlur = 4;
+      ctx.shadowOffsetX = 0;
+      ctx.shadowOffsetY = 1;
+
+      // Cover Text: ✦ SCRATCH TO REVEAL ✦
+      ctx.fillStyle = "#FFFDF7";
+      ctx.font = "600 13px system-ui, -apple-system, sans-serif";
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
-      ctx.fillText("Scratch to reveal", canvas.width / 2, canvas.height / 2);
+      ctx.fillText("✦  SCRATCH TO REVEAL  ✦", canvas.width / 2, canvas.height / 2);
+
+      // Reset shadow
+      ctx.shadowColor = "transparent";
     };
 
     resizeCanvas();
@@ -111,7 +142,7 @@ export default function ScratchCard({ children }: ScratchCardProps) {
 
     ctx.globalCompositeOperation = "destination-out";
     ctx.beginPath();
-    ctx.arc(x, y, 35, 0, Math.PI * 2);
+    ctx.arc(x, y, 32, 0, Math.PI * 2);
     ctx.fill();
   };
 
@@ -124,8 +155,6 @@ export default function ScratchCard({ children }: ScratchCardProps) {
     const pixels = imageData.data;
     let transparentPixels = 0;
 
-    // Check every 4th byte (alpha channel)
-    // To optimize, we check a sample of pixels
     const totalPixels = pixels.length / 4;
     for (let i = 3; i < pixels.length; i += 16) { 
       if (pixels[i] === 0) {
@@ -136,26 +165,32 @@ export default function ScratchCard({ children }: ScratchCardProps) {
     const percentage = transparentPixels / (totalPixels / 4);
     if (percentage > 0.45) {
       setIsRevealed(true);
+      if (onReveal) {
+        onReveal();
+      }
     }
   };
 
   return (
     <div 
       ref={containerRef}
-      className="scratch-card-container relative w-full overflow-hidden rounded-2xl"
+      className="scratch-card-container relative w-full max-w-[420px] mx-auto overflow-hidden rounded-xl border border-[#C9A24B]/60 shadow-xl"
       style={{
-        background: "#ADD8E6", // Light blue background when revealed
-        padding: "10px",
-        touchAction: "none", // Prevent scrolling while scratching
+        background: "linear-gradient(135deg, #FBF8F2 0%, #F3EDDE 100%)",
+        padding: "16px 20px",
+        touchAction: "none",
       }}
     >
-      <div className="revealed-content text-center">
-        {children}
+      {/* Decorative Revealed Card Inner Frame */}
+      <div className="w-full h-full rounded-lg border border-[#C9A24B]/30 py-4 px-3 flex flex-col items-center justify-center relative bg-gradient-to-b from-[#FFFDF9] to-[#F5ECE0]">
+        <div className="revealed-content text-center w-full z-0">
+          {children}
+        </div>
       </div>
 
       <motion.canvas
         ref={canvasRef}
-        className="absolute inset-0 z-10 cursor-pointer"
+        className="absolute inset-0 z-10 cursor-pointer rounded-xl"
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}

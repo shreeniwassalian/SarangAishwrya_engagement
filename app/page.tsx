@@ -23,7 +23,7 @@ export default function LandingPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.9, ease: "easeInOut" }}
             className="absolute inset-0"
           >
             <LandingEnvelope onOpen={handleOpen} />
@@ -34,7 +34,7 @@ export default function LandingPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.9, ease: "easeInOut" }}
             className="absolute inset-0 z-0"
           >
             <InvitationExperience />
