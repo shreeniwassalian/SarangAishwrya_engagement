@@ -277,7 +277,7 @@ body {
   display: grid;
   gap: clamp(12px, 2.5vh, 24px);
   justify-items: center;
-  margin-top: clamp(120px, 22vh, 200px);
+  margin-top: clamp(60px, 12vh, 100px);
 }
 
 .couple-intro h2 {
@@ -469,7 +469,7 @@ body {
   }
   .invitation-section { min-height: 98dvh; padding: 0; }
   .family-section { padding-top: 15px; }
-  .couple-intro { margin-top: 25vh; gap: 14px; }
+  .couple-intro { margin-top: 13vh; gap: 14px; }
   .invitation-title { font-size: clamp(1.7rem, 9vw, 2.35rem); }
   .message-section p br { display: none; }
   .message-section p { max-width: 330px; margin: 0 auto; }
