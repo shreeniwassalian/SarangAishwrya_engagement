@@ -470,8 +470,7 @@ body {
   .invitation-section { min-height: auto; padding: 0; }
   .family-section { padding-top: 60px; padding-bottom: 50px; min-height: 100dvh; }
   .family-section .eyebrow { margin-bottom: 28px; }
-  .family-section .invitation-divider { margin: 55px auto 28px; }
-  .couple-intro { display: block; margin-top: 0; }
+  .couple-intro { display: block; margin-top: 45px; }
   .couple-intro h2 { margin: 0 0 12px; }
   .couple-intro p:not(.with-script) { margin: 0 0 10px; }
   .couple-intro strong { margin: 0 0 6px; display: block; }
