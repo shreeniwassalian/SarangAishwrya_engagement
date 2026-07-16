@@ -119,7 +119,7 @@ export default function InvitationExperience() {
             <Divider compact />
 
             <InvitationSection className="message-section">
-              <motion.div style={{ color: "#FFF0D4", textShadow: "0 2px 6px rgba(0,0,0,0.5)", display: "flex", flexDirection: "column", gap: "1.00rem" }}>
+              <motion.div style={{ color: "#FFF0D4", textShadow: "0 2px 6px rgba(0,0,0,0.5)", display: "flex", flexDirection: "column", gap: "1.00rem", marginTop: "45px" }}>
                 <p>We eagerly await your gracious presence</p>
                 <p>to bless our special day and celebrate</p>
                 <p>the beginning of a beautiful journey together.</p>
