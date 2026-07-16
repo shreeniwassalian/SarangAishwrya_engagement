@@ -26,7 +26,7 @@ export default function InvitationExperience() {
         className="experience-scroll"
         ref={scrollRef}
       >
-        <div className="w-full relative" style={{ background: "url('/mountain-bg.jpg') center top / 100% 100% no-repeat" }}>
+        <div className="w-full relative" style={{ background: "url('/blue-flower-pattern-bg.jpg') center top / 100% auto repeat" }}>
         {/* Scroll Indicator at the bottom of the screen */}
         <motion.div
           className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50 pointer-events-none"
@@ -72,7 +72,7 @@ export default function InvitationExperience() {
             <div className="relative z-10 w-[92%] max-w-md mx-auto">
               <ScratchCard onReveal={() => setIsScratched(true)}>
                 <div className="relative w-full rounded-[12px] overflow-hidden flex items-center justify-center bg-white shadow-sm">
-                  <img src="/save-the-date-card.png" alt="Save the Date 16th August 2026" className="w-full h-auto block pointer-events-none select-none" />
+                  <img src="/save-the-date-card-3.png" alt="Save the Date 16th August 2026" className="w-full h-auto block pointer-events-none select-none" style={{ transform: "scale(1.12)" }} />
                 </div>
               </ScratchCard>
             </div>
@@ -93,7 +93,7 @@ export default function InvitationExperience() {
         >
           <div className="invitation-content" style={{ paddingTop: 0, paddingBottom: 0 }}>
             <InvitationSection>
-              <p className="eyebrow" style={{ color: "#FFF0D4", textShadow: "0 2px 6px rgba(0,0,0,0.5)", letterSpacing: "0.15em" }}>Counting down to our celebration</p>
+              <p className="eyebrow" style={{ color: "#7A1F2B", fontWeight: 700, letterSpacing: "0.15em" }}>Counting down to our celebration</p>
               <Countdown />
               <div style={{ height: "30px" }} aria-hidden="true" />
             </InvitationSection>
@@ -115,11 +115,11 @@ export default function InvitationExperience() {
           transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
           style={{ overflow: "hidden", width: "100%" }}
         >
-          {/* Powder Blue Section */}
-          <div className="w-full bg-[#B5D4DF]">
-            <div className="invitation-content" style={{ paddingTop: 0 }}>
+          {/* Blue Waves Image Section */}
+          <div className="w-full relative" style={{ background: "url('/blue-waves-bg-2.jpg') center bottom / cover no-repeat" }}>
+            <div className="invitation-content" style={{ paddingTop: 0, paddingBottom: 0 }}>
               <InvitationSection className="message-section">
-                <motion.div style={{ color: "#FFF0D4", textShadow: "0 2px 6px rgba(0,0,0,0.5)", display: "flex", flexDirection: "column", gap: "1.00rem", marginTop: "25vh" }}>
+                <motion.div style={{ color: "#FFF0D4", textShadow: "0 2px 6px rgba(0,0,0,0.5)", display: "flex", flexDirection: "column", gap: "1.00rem", marginTop: "12vh" }}>
                   <p>We eagerly await your gracious presence</p>
                   <p>to bless our special day and celebrate</p>
                   <p>the beginning of a beautiful journey together.</p>
@@ -127,6 +127,12 @@ export default function InvitationExperience() {
               </InvitationSection>
 
               <div style={{ height: "25vh" }} aria-hidden="true" />
+            </div>
+          </div>
+
+          {/* Powder Blue Section (Venue onwards) */}
+          <div className="w-full bg-[#B5D4DF]">
+            <div className="invitation-content" style={{ paddingTop: 0 }}>
 
               <InvitationSection>
                 <motion.div>
