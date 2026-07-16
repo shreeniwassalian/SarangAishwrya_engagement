@@ -20,12 +20,13 @@ export default function InvitationExperience() {
       initial={{ opacity: 0, scale: 0.98, filter: "blur(10px)" }}
       animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
       transition={{ duration: 1.15, ease: "easeOut" }}
-      style={{ backgroundColor: "#D4E0D7" }}
+      style={{ backgroundColor: "transparent" }}
     >
       <div
         className="experience-scroll"
         ref={scrollRef}
       >
+        <div className="w-full relative" style={{ background: "url('/mountain-bg.jpg') center top / 100% 100% no-repeat" }}>
         {/* Scroll Indicator at the bottom of the screen */}
         <motion.div
           className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50 pointer-events-none"
@@ -100,7 +101,20 @@ export default function InvitationExperience() {
             <Divider compact />
             <div style={{ height: "60px" }} aria-hidden="true" />
           </div>
+        </motion.div>
+        </div> {/* Close top background wrapper */}
 
+        <motion.div
+          initial={false}
+          animate={{
+            opacity: isScratched ? 1 : 0,
+            y: isScratched ? 0 : 36,
+            height: isScratched ? "auto" : 0,
+            pointerEvents: isScratched ? "auto" : "none"
+          }}
+          transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
+          style={{ overflow: "hidden", width: "100%" }}
+        >
           {/* Powder Blue Section */}
           <div className="w-full bg-[#B5D4DF]">
             <div className="invitation-content" style={{ paddingTop: 0 }}>
