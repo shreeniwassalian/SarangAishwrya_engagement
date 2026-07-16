@@ -17,6 +17,7 @@ export default function ScratchCard({ children, onReveal }: ScratchCardProps) {
 
   useEffect(() => {
     if (isRevealed) {
+      if (onReveal) onReveal();
       const duration = 3000;
       const end = Date.now() + duration;
 
@@ -42,7 +43,7 @@ export default function ScratchCard({ children, onReveal }: ScratchCardProps) {
       };
       frame();
     }
-  }, [isRevealed]);
+  }, [isRevealed, onReveal]);
 
   useEffect(() => {
     const canvas = canvasRef.current;

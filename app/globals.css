@@ -335,7 +335,7 @@ body {
 
 .date-title {
   color: #fff5df;
-  font-size: clamp(3.2rem, 11vw, 6.2rem);
+  font-size: clamp(1.4rem, 5.5vw, 3.2rem);
   font-weight: 800;
   letter-spacing: 0.05em;
 }

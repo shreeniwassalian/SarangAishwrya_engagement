@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
+import { motion, useScroll, useTransform, useSpring, useInView } from "framer-motion";
 import ScratchCard from "./ScratchCard";
 import BackgroundOverlay from "./BackgroundOverlay";
 import Countdown from "./Countdown";
@@ -66,14 +66,38 @@ export default function InvitationExperience() {
         </div>
 
         <div className="invitation-content" style={{ paddingTop: '20px' }}>
-          <ScratchCard onReveal={() => setIsScratched(true)}>
-            <div className="flex flex-col items-center justify-center gap-1">
-              <p className="tracking-[0.25em] text-[0.8rem] uppercase font-semibold text-[#7A1F2B] mb-0.5">Save the date</p>
-              <h2 className="text-3xl sm:text-4xl text-[#7A1F2B] font-normal" style={{ fontFamily: "var(--font-great-vibes), cursive" }}>16th August 2026</h2>
-              <p className="text-xs sm:text-sm uppercase tracking-wider text-[#4C6178] font-medium mt-1">5:00 PM onwards</p>
-            </div>
-          </ScratchCard>
+          <div className="relative flex flex-col items-center justify-center my-16">
+            {/* Top Text (Pops up from behind) */}
+            <motion.div
+              initial={{ y: 60, opacity: 0, scale: 0.8 }}
+              animate={isScratched ? { y: -20, opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.8, type: "spring", bounce: 0.5, delay: 0.2 }}
+              className="absolute z-0 w-full flex justify-center pointer-events-none"
+              style={{ top: '-40px' }}
+            >
+              <p className="tracking-[0.25em] text-[1.4rem] uppercase font-bold text-[#7A1F2B] mb-0.5" style={{ fontSize: 'clamp(1.75rem, 5vw, 2.2rem)' }}>Save the date</p>
+            </motion.div>
 
+            {/* The Scratch Card */}
+            <div className="relative z-10 w-[92%] max-w-md mx-auto">
+              <ScratchCard onReveal={() => setIsScratched(true)}>
+                <div className="flex items-center justify-center w-full" style={{ minHeight: '120px', padding: '10px 20px', background: 'transparent' }}>
+                  <h2 className="text-[#7A1F2B] font-normal whitespace-nowrap date-title" style={{ fontFamily: "var(--font-great-vibes), cursive" }}>16th August 2026</h2>
+                </div>
+              </ScratchCard>
+            </div>
+
+            {/* Bottom Text (Pops down from behind) */}
+            <motion.div
+              initial={{ y: -60, opacity: 0, scale: 0.8 }}
+              animate={isScratched ? { y: 10, opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.8, type: "spring", bounce: 0.5, delay: 0.2 }}
+              className="absolute z-0 w-full flex justify-center pointer-events-none"
+              style={{ bottom: '-30px' }}
+            >
+              <p className="text-sm uppercase tracking-wider text-[#4C6178] font-medium mt-1">5:00 PM onwards</p>
+            </motion.div>
+          </div>
           <Divider />
 
           <motion.div
