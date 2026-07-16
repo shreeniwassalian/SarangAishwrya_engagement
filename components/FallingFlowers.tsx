@@ -10,12 +10,15 @@ interface Flower {
   duration: number;
   size: number;
   rotation: number;
+  src: string;
 }
 
 export default function FallingFlowers() {
   const [flowers, setFlowers] = useState<Flower[]>([]);
 
   useEffect(() => {
+    const images = ["/falling-flower.png", "/falling-flower-white.png"];
+    
     // Generate some flowers
     const generateFlowers = () => {
       const newFlowers: Flower[] = [];
@@ -24,9 +27,10 @@ export default function FallingFlowers() {
           id: i,
           x: Math.random() * 100, // random x position (vw)
           delay: Math.random() * 5, // random delay before falling
-          duration: 12 + Math.random() * 18, // fall duration between 12-30s for slow fall
-          size: 25 + Math.random() * 25, // size 25-50px
+          duration: 14 + Math.random() * 20, // fall duration between 14-34s for very slow fall
+          size: 15 + Math.random() * 45, // much wider variety: 15-60px
           rotation: Math.random() * 360,
+          src: images[Math.floor(Math.random() * images.length)]
         });
       }
       setFlowers(newFlowers);
@@ -61,7 +65,7 @@ export default function FallingFlowers() {
             }}
             style={{ width: flower.size, height: flower.size }}
           >
-            <img src="/falling-flower.png" alt="Falling Flower" className="w-full h-full object-contain" />
+            <img src={flower.src} alt="Falling Flower" className="w-full h-full object-contain" />
           </motion.div>
         );
       })}

@@ -77,8 +77,8 @@ export default function InvitationExperience() {
               </ScratchCard>
             </div>
           </div>
-          <Divider />
         </div> {/* Close top invitation-content */}
+        </div> {/* Close top background wrapper */}
 
         <motion.div
           initial={false}
@@ -89,20 +89,13 @@ export default function InvitationExperience() {
             pointerEvents: isScratched ? "auto" : "none"
           }}
           transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-          style={{ overflow: "hidden", width: "100%" }}
+          style={{ overflow: "hidden", width: "100%", backgroundColor: "#D0E6E1" }}
         >
-          <div className="invitation-content" style={{ paddingTop: 0, paddingBottom: 0 }}>
-            <InvitationSection>
-              <p className="eyebrow" style={{ color: "#7A1F2B", fontWeight: 700, letterSpacing: "0.15em" }}>Counting down to our celebration</p>
-              <Countdown />
-              <div style={{ height: "30px" }} aria-hidden="true" />
-            </InvitationSection>
-
-            <Divider compact />
-            <div style={{ height: "60px" }} aria-hidden="true" />
+          <div className="invitation-content flex flex-col items-center justify-center" style={{ paddingTop: '60px', paddingBottom: '60px' }}>
+            <p className="eyebrow" style={{ color: "#7A1F2B", fontWeight: 700, letterSpacing: "0.15em", marginBottom: '1.5rem', textAlign: 'center' }}>Counting down to our celebration</p>
+            <Countdown />
           </div>
         </motion.div>
-        </div> {/* Close top background wrapper */}
 
         <motion.div
           initial={false}
