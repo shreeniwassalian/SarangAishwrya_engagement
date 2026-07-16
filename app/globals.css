@@ -359,6 +359,11 @@ body {
   letter-spacing: 0.08em;
 }
 
+.message-section {
+  text-shadow: none;
+  background: none;
+}
+
 .message-section p {
   margin: 0;
   color: inherit;
