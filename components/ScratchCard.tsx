@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import confetti from "canvas-confetti";
 
@@ -12,11 +12,29 @@ interface ScratchCardProps {
 export default function ScratchCard({ children, onReveal }: ScratchCardProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const coverImageRef = useRef<HTMLImageElement | null>(null);
+  const lastVibrateRef = useRef<number>(0);
   const [isRevealed, setIsRevealed] = useState(false);
   const [isDrawing, setIsDrawing] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  // Preload cover image
+  useEffect(() => {
+    const img = new Image();
+    img.src = "/scratch-cover.png";
+    img.onload = () => {
+      coverImageRef.current = img;
+      setImageLoaded(true);
+    };
+  }, []);
 
   useEffect(() => {
     if (isRevealed) {
+      if (typeof window !== "undefined" && "vibrate" in navigator) {
+        try {
+          navigator.vibrate([40, 40, 80, 40, 120]);
+        } catch (err) {}
+      }
       if (onReveal) onReveal();
       const duration = 3000;
       const end = Date.now() + duration;
@@ -45,68 +63,35 @@ export default function ScratchCard({ children, onReveal }: ScratchCardProps) {
     }
   }, [isRevealed, onReveal]);
 
+  const fillCanvas = useCallback(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d", { willReadFrequently: true });
+    if (!ctx) return;
+
+    ctx.globalCompositeOperation = "source-over";
+
+    if (coverImageRef.current) {
+      ctx.drawImage(coverImageRef.current, 0, 0, canvas.width, canvas.height);
+    } else {
+      // Fallback while loading
+      ctx.fillStyle = "#C0C0C0";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+  }, []);
+
   useEffect(() => {
     const canvas = canvasRef.current;
     const container = containerRef.current;
     if (!canvas || !container) return;
 
-    const ctx = canvas.getContext("2d", { willReadFrequently: true });
-    if (!ctx) return;
-
-    // Resize canvas to match container
     const resizeCanvas = () => {
       canvas.width = container.offsetWidth;
       canvas.height = container.offsetHeight;
       
-      // Only refill if not revealed
       if (!isRevealed) {
         fillCanvas();
       }
-    };
-
-    const fillCanvas = () => {
-      ctx.globalCompositeOperation = "source-over";
-      
-      // Coin Silver Metallic Foil Diagonal Gradient
-      const grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-      grad.addColorStop(0, "#F5F5F5");
-      grad.addColorStop(0.25, "#C0C0C0");
-      grad.addColorStop(0.5, "#9E9E9E");
-      grad.addColorStop(0.75, "#D4D4D4");
-      grad.addColorStop(1, "#FAFAFA");
-      ctx.fillStyle = grad;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      // Pronounced diagonal light reflection overlay
-      const glare = ctx.createLinearGradient(0, canvas.height, canvas.width, 0);
-      glare.addColorStop(0, "rgba(255, 255, 255, 0)");
-      glare.addColorStop(0.4, "rgba(255, 255, 255, 0.2)");
-      glare.addColorStop(0.5, "rgba(255, 255, 255, 0.8)"); // Bright light reflection
-      glare.addColorStop(0.6, "rgba(255, 255, 255, 0.2)");
-      glare.addColorStop(1, "rgba(255, 255, 255, 0)");
-      ctx.fillStyle = glare;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      // Silver Foil Border Trim
-      ctx.strokeStyle = "rgba(160, 160, 160, 0.7)";
-      ctx.lineWidth = 1.5;
-      ctx.strokeRect(5, 5, canvas.width - 10, canvas.height - 10);
-
-      // Text Shadow for readability
-      ctx.shadowColor = "rgba(40, 15, 10, 0.4)";
-      ctx.shadowBlur = 4;
-      ctx.shadowOffsetX = 0;
-      ctx.shadowOffsetY = 1;
-
-      // Cover Text: ✦ SCRATCH TO REVEAL ✦
-      ctx.fillStyle = "#FFFDF7";
-      ctx.font = "700 18px system-ui, -apple-system, sans-serif";
-      ctx.textAlign = "center";
-      ctx.textBaseline = "middle";
-      ctx.fillText("✦  SCRATCH TO REVEAL  ✦", canvas.width / 2, canvas.height / 2);
-
-      // Reset shadow
-      ctx.shadowColor = "transparent";
     };
 
     resizeCanvas();
@@ -123,7 +108,7 @@ export default function ScratchCard({ children, onReveal }: ScratchCardProps) {
       resizeObserver.disconnect();
       window.removeEventListener("resize", resizeCanvas);
     };
-  }, [isRevealed]);
+  }, [isRevealed, imageLoaded, fillCanvas]);
 
   const handlePointerDown = (e: React.PointerEvent<HTMLCanvasElement>) => {
     if (isRevealed) return;
@@ -155,6 +140,17 @@ export default function ScratchCard({ children, onReveal }: ScratchCardProps) {
     ctx.beginPath();
     ctx.arc(x, y, 32, 0, Math.PI * 2);
     ctx.fill();
+
+    // Haptic vibration feedback while scratching
+    const now = Date.now();
+    if (now - lastVibrateRef.current > 60) {
+      if (typeof window !== "undefined" && "vibrate" in navigator) {
+        try {
+          navigator.vibrate(15);
+        } catch (err) {}
+      }
+      lastVibrateRef.current = now;
+    }
   };
 
   const checkReveal = () => {

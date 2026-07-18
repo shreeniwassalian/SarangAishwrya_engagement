@@ -8,6 +8,15 @@ interface LandingEnvelopeProps {
 }
 
 export default function LandingEnvelope({ onOpen }: LandingEnvelopeProps) {
+  const handleClick = () => {
+    if (typeof window !== "undefined" && "vibrate" in navigator) {
+      try {
+        navigator.vibrate([30, 40, 50]);
+      } catch (err) {}
+    }
+    onOpen();
+  };
+
   return (
     <div className="relative w-full h-[100dvh] flex flex-col items-center justify-center overflow-hidden" style={{ backgroundColor: "#E3F2FD" }}>
       
@@ -23,7 +32,7 @@ export default function LandingEnvelope({ onOpen }: LandingEnvelopeProps) {
         whileHover={{ scale: 1.05, filter: "drop-shadow(0 15px 30px rgba(76, 97, 120, 0.25))" }}
         whileTap={{ scale: 0.95 }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
-        onClick={onOpen}
+        onClick={handleClick}
       >
         <img
           src="/envelope.png"

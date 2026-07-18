@@ -27,7 +27,7 @@ export default function Countdown() {
     <div className="grid grid-cols-4 gap-2.5 sm:gap-4 max-w-lg mx-auto mt-6" aria-label="Countdown to the engagement celebration">
       {Object.entries(timeLeft).map(([label, value]) => (
         <div 
-          className="flex flex-col items-center justify-center p-3 sm:p-4 rounded-xl border border-[#3A5B7C] bg-transparent backdrop-blur-md transition-all hover:border-[#3A5B7C]" 
+          className="flex flex-col items-center justify-center p-3 sm:p-4 rounded-xl border border-[#3A5B7C] bg-[#FDF9F3] backdrop-blur-md transition-all hover:border-[#3A5B7C]" 
           key={label}
         >
           <div className="overflow-hidden h-9 sm:h-12 flex items-center justify-center">
