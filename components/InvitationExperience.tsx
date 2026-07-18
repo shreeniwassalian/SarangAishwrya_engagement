@@ -14,17 +14,7 @@ export default function InvitationExperience() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ container: scrollRef });
 
-  const curveDepth = "clamp(60px, 8vw, 120px)";
-  const curveMaskStyle = {
-    WebkitMaskImage: `linear-gradient(black, black), url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 120' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,0 L1200,0 C900,160 300,160 0,0 Z' fill='black'/%3E%3C/svg%3E")`,
-    WebkitMaskPosition: 'top left, bottom left',
-    WebkitMaskSize: `100% calc(100% - ${curveDepth}), 100% ${curveDepth}`,
-    WebkitMaskRepeat: 'no-repeat, no-repeat',
-    maskImage: `linear-gradient(black, black), url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 120' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,0 L1200,0 C900,160 300,160 0,0 Z' fill='black'/%3E%3C/svg%3E")`,
-    maskPosition: 'top left, bottom left',
-    maskSize: `100% calc(100% - ${curveDepth}), 100% ${curveDepth}`,
-    maskRepeat: 'no-repeat, no-repeat',
-  };
+
 
   return (
     <motion.main
@@ -51,31 +41,49 @@ export default function InvitationExperience() {
           </svg>
         </motion.div>
 
-        <div className="relative w-full overflow-hidden" style={curveMaskStyle}>
-          <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="relative w-full aspect-[941/1672] md:aspect-[3/2]">
+          <div className="absolute top-0 left-0 w-full z-0 pointer-events-none overflow-hidden" style={{ bottom: '-40px' }}>
             <BackgroundOverlay />
           </div>
           <div className="invitation-content relative z-10" style={{ paddingBottom: 'clamp(80px, 12vw, 140px)' }}>
-            <InvitationSection className="family-section">
-              <p className="eyebrow" style={{ transform: "translateY(-5px)" }}>Together with our families</p>
-              <h1 className="invitation-title" style={{ transform: "translateY(-5px)" }}>Request the<br />honour of your<br />presence</h1>
-              <div className="couple-intro">
-                <div>
-                  <h2>Sarang</h2>
-                  <p>Son of</p>
-                  <strong>Mr. Dattatray Yadav</strong>
-                  <strong>&amp; Mrs. Suman Yadav</strong>
-                </div>
-                <p className="with-script">with</p>
-                <div>
-                  <h2>Aishwarya</h2>
-                  <p>Daughter of</p>
-                  <strong>Mr. Ravindra Pisal</strong>
-                  <strong>&amp; Mrs. Surekha Pisal</strong>
-                </div>
-              </div>
+            <InvitationSection className="family-section" style={{ minHeight: 0, background: 'none' }}>
+              {/* Text is now part of the background image */}
             </InvitationSection>
           </div>
+
+          {/* Elegant Organic Divider (Top section to Scratch card) */}
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 1200 120" 
+            preserveAspectRatio="none"
+            className="absolute left-0 w-full h-[80px] sm:h-[140px] z-10 pointer-events-none block"
+            style={{ bottom: '-40px' }}
+          >
+            <defs>
+              <filter id="watercolor-blur-top" x="-10%" y="-10%" width="120%" height="120%">
+                <feGaussianBlur stdDeviation="4" result="blur" />
+                <feComponentTransfer>
+                  <feFuncA type="linear" slope="0.8"/>
+                </feComponentTransfer>
+              </filter>
+            </defs>
+            
+            <path 
+              d="M0,120 V45 C 50,40 80,65 140,55 C 200,45 230,20 290,35 C 360,50 400,75 470,65 C 530,55 570,30 630,40 C 690,50 740,70 810,60 C 870,50 910,25 970,35 C 1030,45 1080,65 1140,55 C 1170,50 1190,40 1200,45 V120 Z" 
+              fill="#D7E9F3" 
+              opacity="0.3" 
+              filter="url(#watercolor-blur-top)"
+            />
+            <path 
+              d="M0,120 V55 C 40,65 70,45 130,55 C 180,65 220,85 280,75 C 340,65 370,40 430,50 C 490,60 540,80 610,70 C 670,60 700,35 760,45 C 820,55 860,75 920,65 C 980,55 1010,35 1070,45 C 1120,55 1160,70 1200,65 V120 Z" 
+              fill="#D7E9F3" 
+              opacity="0.6" 
+            />
+            <path 
+              d="M0,120 V70 C 30,65 50,85 100,80 C 150,75 180,50 240,60 C 300,70 340,95 400,85 C 460,75 490,55 550,65 C 600,75 640,90 700,80 C 760,70 790,45 850,55 C 910,65 950,85 1010,75 C 1060,65 1090,45 1150,55 C 1180,60 1190,65 1200,70 V120 Z" 
+              fill="#D7E9F3" 
+            />
+          </svg>
         </div>
 
         <div className="invitation-content" style={{ paddingTop: '20px' }}>
