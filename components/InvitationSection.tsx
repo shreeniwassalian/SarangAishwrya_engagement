@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import AnimatedText from "./AnimatedText";
 
 interface InvitationSectionProps {
-  children: ReactNode;
+  children?: ReactNode;
   className?: string;
   style?: React.CSSProperties;
 }
